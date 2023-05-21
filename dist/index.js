@@ -79,4 +79,8 @@ const primeNubers = (limit) => {
     }
     return primes;
 };
-console.log(primeNubers(50));
+console.log(primeNubers(40));
+const reverseString = (str) => {
+    return str.split('').reverse().join('');
+};
+console.log(reverseString('hello world'));
