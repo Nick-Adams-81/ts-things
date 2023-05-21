@@ -24,24 +24,23 @@ let pid = 2;
 const balancedBrackets = (str) => {
     if (str.length % 2 !== 0 || str.length === 0)
         return false;
-    let myArray = [];
-    let splitStr = str.split("");
-    for (let c of splitStr) {
-        let lastIndex = myArray[myArray.length - 1];
+    let stack = [];
+    for (let c of str.split("")) {
+        let lastIndex = stack[stack.length - 1];
         if (c === "{" || c == "(" || c == "[")
-            myArray.push(c);
+            stack.push(c);
         else if (c == "}" && lastIndex == "{")
-            myArray.pop();
+            stack.pop();
         else if (c == ")" && lastIndex == "(")
-            myArray.pop();
+            stack.pop();
         else if (c == "]" && lastIndex == "[")
-            myArray.pop();
+            stack.pop();
     }
-    if (myArray.length === 0)
+    if (stack.length === 0)
         return true;
     return false;
 };
-console.log(balancedBrackets("{}"));
+console.log(balancedBrackets("{}["));
 const removeVowels = (str) => {
     return str.replace(/[aeiou]/gi, "");
 };
@@ -50,18 +49,34 @@ const countValleys = (str) => {
     let splitStr = str.split("");
     let elevation = 0;
     let valleys = 0;
-    for (let chars in splitStr) {
-        //console.log(splitStr[chars])
-        if (splitStr[chars] == "u") {
+    for (let chars of splitStr) {
+        if (chars == "u") {
             if (elevation === -1) {
                 valleys++;
             }
             elevation++;
         }
-        if (splitStr[chars] == "d") {
+        if (chars == "d") {
             elevation--;
         }
     }
     return valleys;
 };
-console.log(countValleys("dudu"));
+console.log(countValleys("dududu"));
+const primeNubers = (limit) => {
+    let primes = [];
+    for (let i = 2; i <= limit; i++) {
+        let isPrime = true;
+        for (let j = 2; j <= i / 2; j++) {
+            if (i % j === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            primes.push(i);
+        }
+    }
+    return primes;
+};
+console.log(primeNubers(50));
