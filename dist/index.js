@@ -43,6 +43,25 @@ const balancedBrackets = (str) => {
 };
 console.log(balancedBrackets("{}"));
 const removeVowels = (str) => {
-    return str.replace(/[aeiou]/gi, '');
+    return str.replace(/[aeiou]/gi, "");
 };
-console.log(removeVowels('hello world'));
+console.log(removeVowels("hello world"));
+const countValleys = (str) => {
+    let splitStr = str.split("");
+    let elevation = 0;
+    let valleys = 0;
+    for (let chars in splitStr) {
+        //console.log(splitStr[chars])
+        if (splitStr[chars] == "u") {
+            if (elevation === -1) {
+                valleys++;
+            }
+            elevation++;
+        }
+        if (splitStr[chars] == "d") {
+            elevation--;
+        }
+    }
+    return valleys;
+};
+console.log(countValleys("dudu"));
