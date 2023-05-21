@@ -28,7 +28,7 @@ let person: [number, string, boolean] = [1, "nick", true];
 let pid: number | string = 2;
 
 const balancedBrackets = (str: string): boolean => {
-  if (str.length % 2 !== 0) return false;
+  if (str.length % 2 !== 0 || str.length === 0) return false;
   let myArray: string[] = [];
   let splitStr: string[] = str.split("");
 
@@ -44,4 +44,9 @@ const balancedBrackets = (str: string): boolean => {
   return false;
 };
 
-console.log(balancedBrackets("(){}"));
+console.log(balancedBrackets("{}"));
+
+const removeVowels = (str: string): string => {
+    return str.replace(/[aeiou]/gi, '')
+}
+console.log(removeVowels('hello world'))

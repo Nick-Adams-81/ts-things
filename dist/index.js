@@ -22,7 +22,7 @@ let person = [1, "nick", true];
 // union
 let pid = 2;
 const balancedBrackets = (str) => {
-    if (str.length % 2 !== 0)
+    if (str.length % 2 !== 0 || str.length === 0)
         return false;
     let myArray = [];
     let splitStr = str.split("");
@@ -41,4 +41,8 @@ const balancedBrackets = (str) => {
         return true;
     return false;
 };
-console.log(balancedBrackets("(){}"));
+console.log(balancedBrackets("{}"));
+const removeVowels = (str) => {
+    return str.replace(/[aeiou]/gi, '');
+};
+console.log(removeVowels('hello world'));
