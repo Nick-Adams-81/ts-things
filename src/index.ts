@@ -49,6 +49,18 @@ const removeVowels = (str: string): string => {
 };
 console.log(removeVowels("hello world"));
 
+const countVowels = (str: string): number => {
+  let count: number = 0;
+  for (let c of str.split("")) {
+    //console.log(str[c]);
+    if (c == "a" || c == "e" || c == "i" || c == "o" || c == "u") {
+      count++;
+    }
+  }
+  return count;
+};
+console.log(countVowels("hello world"));
+
 const countValleys = (str: string): number => {
   let splitStr: string[] = str.split("");
   let elevation: number = 0;
@@ -89,7 +101,7 @@ const primeNubers = (limit: number): number[] => {
 console.log(primeNubers(40));
 
 const reverseString = (str: string): string => {
-    return str.split('').reverse().join('')
-}
+  return str.split("").reverse().join("");
+};
 
-console.log(reverseString('hello world'))
+console.log(reverseString("hello world"));
