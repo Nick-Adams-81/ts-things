@@ -46,9 +46,9 @@ const removeVowels = (str) => {
 };
 console.log(removeVowels("hello world"));
 const countVowels = (str) => {
+    str = str.toLowerCase();
     let count = 0;
     for (let c of str.split("")) {
-        //console.log(str[c]);
         if (c == "a" || c == "e" || c == "i" || c == "o" || c == "u") {
             count++;
         }
@@ -57,6 +57,7 @@ const countVowels = (str) => {
 };
 console.log(countVowels("hello world"));
 const countValleys = (str) => {
+    str = str.toLowerCase();
     let splitStr = str.split("");
     let elevation = 0;
     let valleys = 0;
@@ -95,3 +96,24 @@ const reverseString = (str) => {
     return str.split("").reverse().join("");
 };
 console.log(reverseString("hello world"));
+const isPalindrome = (str) => {
+    str = str.toLowerCase();
+    return str.split("").reverse().join("") === str;
+};
+console.log(isPalindrome("bob"));
+const jumpOnClouds = (arr) => {
+    let jumps = 0;
+    let i = 0;
+    while (i < arr.length - 1) {
+        if (i + 2 === arr.length || arr[i + 2] == 1) {
+            i++;
+            jumps++;
+        }
+        else {
+            i += 2;
+            jumps++;
+        }
+    }
+    return jumps;
+};
+console.log(jumpOnClouds([0, 0, 1, 0, 1, 0]));
