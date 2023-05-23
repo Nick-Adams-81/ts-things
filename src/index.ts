@@ -128,3 +128,19 @@ const jumpOnClouds = (arr: number[]): number => {
   return jumps;
 };
 console.log(jumpOnClouds([0, 0, 1, 0, 1, 0]));
+
+const minMaxSum = (arr: number[]): number[] => {
+  let min = arr[0];
+  let max = arr[0];
+  let total: number = 0;
+  for (let n of arr) {
+    total += n;
+    if (n < min) min = n;
+    if (n > max) max = n;
+  }
+  let minSum: number = total - max;
+  let maxSum: number = total - min;
+  return [minSum, maxSum];
+};
+
+console.log(minMaxSum([1, 3, 5, 7, 9]));
